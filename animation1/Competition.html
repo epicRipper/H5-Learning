@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 500px;
+      height: 90px;
+      line-height: 100px;
+      margin: 100px auto;
+      text-align: center;
+      box-shadow: 0 0 20px #ddd;
+    }
+    .left {
+      width: 86px;
+      height: 100px;
+      background: url('./52.png') no-repeat;
+      margin-left: 70px;
+      float: left;
+      -webkit-animation: team-logo-left .7s forwards
+    }
+    .vs {
+      display: inline-block;
+      font-size: 50px;
+      color: rgba(89, 98, 224, 0.925);
+    }
+    .right  {
+      width: 100px;
+      height: 100px;
+      background: url('./53.png') no-repeat;
+      margin-right: 50px;
+      float: right;
+      -webkit-animation: team-logo-right .7s forwards
+    }
+    @-webkit-keyframes team-logo-left {
+      0% {
+        -webkit-transform: translate3d(-200px, 0, 0) scale(1.3);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease-out;
+        opacity: .05;
+      }
+      50%, 60% {
+        -webkit-transform: translate3d(70px, 0, 0) scale(1.3);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease;
+        opacity: .8;
+      }
+      85% {
+        -webkit-transform: translate3d(-10px, 0, 0) scale(1);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease;
+        opacity: 1;
+      }
+      100% {
+        -webkit-transform: translate3d(0px, 0, 0) scale(1);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease;
+        opacity: 1;
+      }
+    }
+    @-webkit-keyframes team-logo-right {
+      0% {
+        -webkit-transform: translate3d(200px, 0, 0) scale(1.3);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease-out;
+        opacity: .05;
+      }
+      50%, 60% {
+        -webkit-transform: translate3d(-70px, 0, 0) scale(1.3);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease;
+        opacity: .8;
+      }
+      85% {
+        -webkit-transform: translate3d(10px, 0, 0) scale(1);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease;
+        opacity: 1;
+      }
+      100% {
+        -webkit-transform: translate3d(0px, 0, 0) scale(1);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease;
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left"></div>
+    <div class="vs">vs</div>
+    <div class="right"></div>
+  </div>
+</body>
+</html>
