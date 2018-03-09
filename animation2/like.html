@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .heart {
+      background: url('./heart.png');
+      background-position: left;
+      margin: 100px auto;
+      width: 100px;
+      height: 100px;
+    }
+    .like-animation {
+      animation-name: heart-burst;
+      animation-timing-function: steps(28);
+      animation-duration: .8s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+    @keyframes heart-burst {
+      0% {
+        background-position: left;
+      }
+      100% {
+        background-position: right;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="heart"></div>
+</body>
+</html>
+
+<script src="../jquery-3.2.1.js"></script>
+<script>
+  $('.heart').click(function () { 
+    const _this = $(this);
+    _this.hasClass('like-animation') ? _this.removeClass('like-animation') : _this.addClass('like-animation')
+   })
+</script>
