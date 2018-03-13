@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      -webkit-user-select:none;
+      -moz-user-select:none;
+      -ms-user-select:none;
+      user-select:none;
+    }
+    .container {
+      width: 500px;
+      padding: 20px;
+      line-height: 100px;
+      margin: 100px auto;
+      text-align: center;
+      box-shadow: 0 0 20px #ddd;
+    }
+    .left {
+      width: 86px;
+      height: 100px;
+      background: url('./52.png') no-repeat;
+      margin-left: 70px;
+      float: left;
+      -webkit-animation: team-logo-left .7s forwards
+    }
+    .vs {
+      display: inline-block;
+      font-size: 50px;
+      color: rgba(89, 98, 224, 0.925);
+    }
+    .right  {
+      width: 100px;
+      height: 100px;
+      background: url('./53.png') no-repeat;
+      margin-right: 50px;
+      float: right;
+      -webkit-animation: team-logo-right .7s forwards
+    }
+    @-webkit-keyframes team-logo-left {
+      0% {
+        -webkit-transform: translate3d(-200px, 0, 0) scale(1.3);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease-out;
+        opacity: .05;
+      }
+      50%, 60% {
+        -webkit-transform: translate3d(70px, 0, 0) scale(1.3);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease;
+        opacity: .8;
+      }
+      85% {
+        -webkit-transform: translate3d(-10px, 0, 0) scale(1);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease;
+        opacity: 1;
+      }
+      100% {
+        -webkit-transform: translate3d(0px, 0, 0) scale(1);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease;
+        opacity: 1;
+      }
+    }
+    @-webkit-keyframes team-logo-right {
+      0% {
+        -webkit-transform: translate3d(200px, 0, 0) scale(1.3);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease-out;
+        opacity: .05;
+      }
+      50%, 60% {
+        -webkit-transform: translate3d(-70px, 0, 0) scale(1.3);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease;
+        opacity: .8;
+      }
+      85% {
+        -webkit-transform: translate3d(10px, 0, 0) scale(1);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease;
+        opacity: 1;
+      }
+      100% {
+        -webkit-transform: translate3d(0px, 0, 0) scale(1);
+        -webkit-transform-origin: center;
+        -webkit-transition-timing-function: ease;
+        opacity: 1;
+      }
+    }
+    .support-box {
+      width: 100%;
+      height: 50px;
+      overflow: hidden;
+    }
+    .support-left, .support-right {
+      width: 50%;
+      height: 50px;
+      line-height: 50px;
+      box-sizing: border-box;
+      font-size: 20px;
+      color: #fff;
+      background: #b50101;
+      float: left;
+    }
+    .support-left {
+      text-align: left;
+      padding-left: 20px;
+    }
+    .support-right  {
+      background: #5dc8b7;
+      text-align: right;
+      padding-right: 20px;
+    }
+    .vote-left, .vote-right {
+      opacity: 0;
+      display: inline-block;
+    }
+    .vote-animation {
+      animation: vote 1s ease;
+    }
+    @keyframes vote {
+      0% {
+        opacity: 0;
+        -webkit-transform: scale(0);
+      }
+      50% {
+        opacity: 1;
+      }
+      60% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        -webkit-transform: scale(1.4);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <div class="left"></div>
+      <div class="vs">vs</div>
+      <div class="right"></div>
+    </div>
+    <div class="support-box">
+      <div class="support-left">
+        <span class="left-value">50</span>
+        <span class="vote-left">+1</span>
+        </div>
+      <div class="support-right">
+        <span class="vote-right">+1</span>
+        <span class="right-value">50</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<script src="../jquery-3.2.1.js"></script>
+<script>
+  var leftValue = 50;
+  var rightValue = 50;
+  var allValue = 100;
+  var left = $('.support-left')[0];
+  var right = $('.support-right')[0];
+  var leftValueText = $('.left-value')[0];
+  var rightValueText = $('.right-value')[0];
+
+  $('.support-left').click(function () {  
+    leftValue++;
+    allValue++;
+    $('.vote-left').removeClass('vote-animation');
+    left.style.width = (leftValue/allValue *100) +'%';
+    right.style.width = (100 - leftValue/allValue *100) + '%';
+    leftValueText.innerHTML = leftValue;
+    showOnePlus = setTimeout(function () {
+        $('.vote-left').addClass("vote-animation");
+        clearTimeout(showOnePlus)
+    }, 0)
+  })
+  $('.support-right').click(function () {  
+    rightValue++;
+    allValue++;
+    $('.vote-right').removeClass('vote-animation');
+    right.style.width = (rightValue/allValue *100) +'%';
+    left.style.width = (100 - rightValue/allValue *100) + '%';
+    rightValueText.innerHTML = rightValue;
+    clearTimeout(showOnePlus);
+    showOnePlus = setTimeout(function () {
+        $('.vote-right').addClass("vote-animation");
+        clearTimeout(showOnePlus)
+    }, 0)
+  })
+</script>
