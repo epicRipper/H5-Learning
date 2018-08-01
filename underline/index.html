@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>animation1</li>
+    <li>animation2</li>
+    <li>animation3</li>
+    <li>animation4</li>
+    <li>underline</li>
+    <li>wave</li>
+  </ul>
+</body>
+</html>
+<style>
+  ul {
+    width: 800px;
+    margin: 200px auto;
+  }
+  ul li {
+    float: left;
+    list-style: none;
+    padding: 20px;
+    cursor: pointer;
+    position: relative;
+  }
+  ul li::before {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transition: .2s all linear;
+    border-bottom: 2px solid #000;
+  }
+  ul li:hover::before {
+    width: 100%;
+    left: 0;
+    transition-delay: 0.1s;
+  }
+  /* E ~ F 匹配任何在E元素之后的同级F元素 */
+  li:hover ~ li::before {
+    left: 0;
+  }
+</style>
