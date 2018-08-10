@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container"></div>
+  <div class="pic"></div>
+  <div class="point"></div>
+  <div class="point-fadein">
+    <div class="point-pic"></div>
+  </div>
+  <div class="bg-box">
+    <div class="bg"></div>
+    <div class="text">IMAGE</div>
+  </div>
+</body>
+</html>
+<style>
+  .container {
+    width: 300px;
+    height: 500px;
+    float: left;
+    background: url('./1.jpg'), url('./2.jpg');
+    background-size: cover;
+    background-blend-mode: lighten;
+  }
+  .pic {
+    width: 500px;
+    height: 300px;
+    float: left;
+    margin-left: 50px;
+    background: url('./3.jpg'), linear-gradient(45deg, #ffc107, #3f51b5, #4caf50, #ff0057, #fae105, #5c00ff);
+    background-size: cover;
+    background-blend-mode: luminosity;
+    background-repeat: no-repeat;
+    background-position: 0 0, -500px 0;
+    transition: .5s background-position linear;
+    cursor: pointer;
+  }
+  .pic:hover {
+    background-position: 0 0, 0 0;
+  }
+  .point {
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-left: 50px;
+    background: url('./point.png'), linear-gradient(#f09, #09f, #f0f);
+    background-size: cover;
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-position: 0 0, 0px 200px;
+    transition: .3s background-position linear;
+    cursor: pointer;
+  }
+  .point:hover {
+    background-position: 0 0, 0 0;
+  }
+  .point-fadein {
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-left: 50px;
+    cursor: pointer;
+    background: transparent;
+    transition: .5s all ease-out;
+  }
+  .point-fadein:hover {
+    background: #09f;
+  }
+  .point-pic {
+    width: 200px;
+    height: 200px;
+    float: left;
+    background: url('./point.png');
+    background-size: cover;
+    mix-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    transition: .3s background-position linear;
+    cursor: pointer;
+  }
+  .bg-box {
+    width: 300px;
+    height: 200px;
+    float: left;
+    margin-left: 100px;
+    position: relative;
+  }
+  .bg {
+    width: 100%;
+    height: 100%;
+    background: url('./bg.jpg') no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 90px;
+    line-height: 200px;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    mix-blend-mode: lighten;
+    z-index: 99;
+    background-color: #fff;
+  }
+</style>
